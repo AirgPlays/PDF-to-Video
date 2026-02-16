@@ -1,0 +1,22 @@
+{
+"manifest_version": 3,
+  "name": "PDF to Video",
+  "version": "1.0.0",
+  "author": "AirgPlays",
+  "description": "Displays the PDF page’s video version in a dynamic full-screen media viewer.",
+  "icons": {
+    "16": "Icon.png",
+    "48": "Icon.png",
+    "128": "Icon.png"},
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Play as Video"
+  }
+}
+
+  

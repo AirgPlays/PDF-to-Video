@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MP4 Player</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+    }
+    .video-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+    }
+    video {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      outline: none;
+    }
+    .controls {
+      background: #111;
+      color: white;
+      padding: 10px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-family: sans-serif;
+      border-top: 1px solid #333;
+    }
+    .controls button, .controls select {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .controls button:hover {
+      background: #555;
+    }
+    .controls button.active {
+      background: #ffaa00;
+      color: black;
+    }
+    .controls label {
+      margin-right: 5px;
+    }
+  </style>
+
+<svg style="display: none;">
+    <filter id="sharpen">
+      <feConvolveMatrix order="3" kernelMatrix="0 -1 0 -1 5 -1 0 -1 0" />
+    </filter>
+  </svg>
+</head>
+<body>
+  <div class="video-container">
+    <video id="videoPlayer" controls></video>
+  </div>
+  <div class="controls">
+    <button id="fullscreenBtn">⛶ Fullscreen</button>
+    <div>
+      <label for="speed">Speed:</label>
+      <select id="speed">
+        <option value="0.5">0.5x</option>
+        <option value="1" selected>1x</option>
+        <option value="1.5">1.5x</option>
+        <option value="2">2x</option>
+      </select>
+    </div>
+    <button id="pipBtn">📌 Picture‑in‑Picture</button>
+    <button id="sharpenToggle">🔪 Sharpen Off</button>
+    <span id="filename" style="margin-left: auto; opacity: 0.7;"></span>
+  </div>
+
+  <script src="player.js"></script>
+</body>
+</html>
